@@ -1,0 +1,109 @@
+{"string": {
+      "Alias": "cur_parquet_adamhu",
+      "DataTransforms": [
+            {
+                "TagColumnOperation": {
+                    "ColumnName": "product_region", 
+                    "Tags": [
+                        {
+                            "ColumnGeographicRole": "STATE"
+                        }
+                    ]
+                }
+            }, 
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "Cal_AmortizedCost", 
+                            "Expression": "{line_item_net_unblended_cost}+{reservation_net_effective_cost}+{reservation_net_unused_amortized_upfront_fee_for_billing_period}+{reservation_net_unused_recurring_fee}+{savings_plan_net_savings_plan_effective_cost}", 
+                            "ColumnId": "c4d48f98-a44f-49c6-a8f7-271ab3ca2594"
+                        }
+                    ]
+                }
+            }, 
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "Purchase_Option_Amortized", 
+                            "Expression": "ifelse({line_item_product_code} = \"OCBPremiumSupport\" AND {line_item_line_item_type} = \"Fee\",\"Ondemand\",{line_item_product_code} <> \"OCBPremiumSupport\" AND {line_item_line_item_type} = \"Fee\",\"NA\",{line_item_line_item_type} = \"DiscountedUsage\",\"Reserved\",{line_item_line_item_type} = \"RIFee\" AND {reservation_net_unused_amortized_upfront_fee_for_billing_period} > 0,\"Unused Reserved\",{line_item_line_item_type} = \"RIFee\" AND {reservation_net_unused_recurring_fee} > 0,\"Unused Reserved\",{line_item_line_item_type} = \"RIFee\" AND {line_item_net_unblended_cost} > 0,\"NA\",{line_item_line_item_type} = \"RIFee\",\"Reserved\",LOCATE({line_item_usage_type},\"Spot\") > 0,\"Spot\",{line_item_line_item_type} = \"SavingsPlanCoveredUsage\",\"SavingsPlans\",{line_item_line_item_type} = \"SavingsPlanUpfrontFee\",\"NA\",\"Ondemand\")", 
+                            "ColumnId": "25b58628-ee4f-4b1f-9435-79d86ccd5ded"
+                        }
+                    ]
+                }
+            }, 
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "Purchase_Option_Unblended", 
+                            "Expression": "ifelse({line_item_product_code} = \"OCBPremiumSupport\" AND {line_item_line_item_type} = \"Fee\",\"Ondemand\",{line_item_product_code} <> \"OCBPremiumSupport\" AND {line_item_line_item_type} = \"Fee\",\"Upfront RI\",{line_item_line_item_type} = \"RIFee\",\"Reoccuring RI\",{line_item_line_item_type} = \"SavingsPlanUpfrontFee\",\"SavingsPlanUpfrontFee\",LOCATE({line_item_usage_type},\"Spot\") > 0,\"Spot\",\"Ondemand\")", 
+                            "ColumnId": "b0f6043b-349d-4a2c-b739-037b7e7852dd"
+                        }
+                    ]
+                }
+            }, 
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "Cal_ActualCost", 
+                            "Expression": "{line_item_net_unblended_cost}", 
+                            "ColumnId": "5662bdc0-7867-4187-971e-707484dca59e"
+                        }
+                    ]
+                }
+            },
+            {
+                "CastColumnTypeOperation": {
+                    "ColumnName": "bill_billing_period_start_date", 
+                    "NewColumnType": "DATETIME"
+                }
+            }, 
+            {
+                "CastColumnTypeOperation": {
+                    "ColumnName": "bill_billing_period_end_date", 
+                    "NewColumnType": "DATETIME"
+                }
+            }, 
+            {
+                "CastColumnTypeOperation": {
+                    "ColumnName": "line_item_usage_start_date", 
+                    "NewColumnType": "DATETIME"
+                }
+            }, 
+            {
+                "CastColumnTypeOperation": {
+                    "ColumnName": "line_item_usage_end_date", 
+                    "NewColumnType": "DATETIME"
+                }
+            },
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "savings_plan_net_savings_plan_effective_cost", 
+                            "Expression": "''", 
+                            "ColumnId": "5662bdc0-7867-4187-971e-707484dnetsp"
+                        }
+                    ]
+                }
+            },
+            {
+                "CreateColumnsOperation": {
+                    "Columns": [
+                        {
+                            "ColumnName": "resource_tags_aws_elasticmapreduce_job_flow_id", 
+                            "Expression": "''", 
+                            "ColumnId": "5662bdc0-7867-4187-971e-707484dca59f"
+                        }
+                    ]
+                }
+            }
+      ],
+      "Source": {
+        "PhysicalTableId": "string"
+      }
+    }
+}
