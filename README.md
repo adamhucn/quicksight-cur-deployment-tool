@@ -89,24 +89,24 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 ### 本方案涉及的主要成本:  
 
 1.QuickSight 企业版订阅费，根据订阅方式不同，每月 $18 或 $24 美元  
-    https://aws.amazon.com/cn/quicksight/pricing/  
+&emsp;    https://aws.amazon.com/cn/quicksight/pricing/  
 2.Athena 数据查询费用  
-    以美东一区域为例，每扫描 1TB 数据 $5.00 美元  
-    https://aws.amazon.com/cn/athena/pricing/  
+&emsp;    以美东一区域为例，每扫描 1TB 数据 $5.00 美元  
+&emsp;    https://aws.amazon.com/cn/athena/pricing/  
 3.S3 数据存储费用  
-    以美东一区域为例  
-    每 1GB 数据存储1个月成本为 $0.023 美元  
-    每 1,000 个 GET 请求 $0.0004 美元  
-    https://aws.amazon.com/cn/s3/pricing/  
+&emsp;    以美东一区域为例  
+&emsp;    每 1GB 数据存储1个月成本为 $0.023 美元  
+&emsp;    每 1,000 个 GET 请求 $0.0004 美元  
+&emsp;    https://aws.amazon.com/cn/s3/pricing/  
 4.每天运行 2~3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态  
-    以美东一区域为例，每 DPU-Hour $0.44 美元，按秒计费，每运行一次最小计费单元为10分钟  
-    https://aws.amazon.com/cn/glue/pricing/  
+&emsp;    以美东一区域为例，每 DPU-Hour $0.44 美元，按秒计费，每运行一次最小计费单元为10分钟  
+&emsp;    https://aws.amazon.com/cn/glue/pricing/  
 5.每天运行 2~3 次的 Lambda 程序，用来触发 Glue Crawler  
-    以美东一区域为例，配置为 128MB 内存, 每秒 $0.000002083 美元  
-    https://aws.amazon.com/cn/lambda/pricing/  
+&emsp;    以美东一区域为例，配置为 128MB 内存, 每秒 $0.000002083 美元  
+&emsp;    https://aws.amazon.com/cn/lambda/pricing/  
 6.如果您在 EC2 或 Cloud 9 上运行此脚本工具，将会按照实例类型单独收取相关费用  
-    https://aws.amazon.com/cn/ec2/pricing/on-demand/  
-    https://aws.amazon.com/cn/cloud9/pricing/  
+&emsp;    https://aws.amazon.com/cn/ec2/pricing/on-demand/  
+&emsp;    https://aws.amazon.com/cn/cloud9/pricing/  
 
 ### **所需最小权限 :**  
 
