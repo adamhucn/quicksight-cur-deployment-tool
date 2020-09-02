@@ -119,63 +119,63 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 
 脚本工具 “deployQSCUR.sh” 所需的最小权限集为:  
 {  
- &emsp;"Version": "2020-08-04",  
- &emsp;"Statement": [  
- &emsp;&emsp;{  
- &emsp;&emsp;&emsp;"Sid": "deployQSCURPolicy",  
- "Effect": "Allow",  
- "Action": [  
-"EC2:DescribeRegions",  
-"s3:GetBucketLocation",  
-"s3:ListBucket",  
-"s3:PutObject",  
- "s3:GetObject",  
- "glue:GetPartitions",  
-"glue:GetDatabase",  
-"glue:GetDatabases",  
-"glue:GetTable",  
-"glue:GetTables",  
-"athena:ListDatabases",  
- "athena:GetDatabase",  
-"athena:ListTableMetadata",  
-"athena:GetTableMetadata",  
-"athena:StartQueryExecution",  
-"athena:GetQueryExecution",  
-"athena:GetQueryResults",  
-"quicksight:ListUsers",  
-"quicksight:CreateUser",  
-"quicksight:CreateAdmin",  
- "quicksight:DescribeDataSource",  
-"quicksight:UpdateDataSourcePermissions",  
- "quicksight:UpdateDataSetPermissions",  
- "quicksight:PassDataSource",  
-"quicksight:CreateDataSet",  
-"quicksight:DescribeDataSet",  
-"quicksight:PassDataSet"  
- "quicksight:DescribeTemplate",  
-"quicksight:CreateDataSource",  
-"quicksight:CreateDashboard",  
-"quicksight:DescribeDashboard",  
- "quicksight:UpdateDashboardPermissions"  
- ],  
- "Resource": "*"  
- }  
- ]  
+&emsp;"Version": "2020-08-04",  
+&emsp;"Statement": [  
+&emsp;&emsp;{  
+&emsp;&emsp;&emsp;"Sid": "deployQSCURPolicy",  
+&emsp;&emsp;&emsp;"Effect": "Allow",  
+&emsp;&emsp;&emsp; "Action": [  
+&emsp;&emsp;&emsp;&emsp;"EC2:DescribeRegions",  
+&emsp;&emsp;&emsp;&emsp;"s3:GetBucketLocation",  
+&emsp;&emsp;&emsp;&emsp;"s3:ListBucket",  
+&emsp;&emsp;&emsp;&emsp;"s3:PutObject",  
+&emsp;&emsp;&emsp;&emsp;"s3:GetObject",  
+&emsp;&emsp;&emsp;&emsp;"glue:GetPartitions",  
+&emsp;&emsp;&emsp;&emsp;"glue:GetDatabase",  
+&emsp;&emsp;&emsp;&emsp;"glue:GetDatabases",  
+&emsp;&emsp;&emsp;&emsp;"glue:GetTable",  
+&emsp;&emsp;&emsp;&emsp;"glue:GetTables",  
+&emsp;&emsp;&emsp;&emsp;"athena:ListDatabases",  
+&emsp;&emsp;&emsp;&emsp;"athena:GetDatabase",  
+&emsp;&emsp;&emsp;&emsp;"athena:ListTableMetadata",  
+&emsp;&emsp;&emsp;&emsp;"athena:GetTableMetadata",  
+&emsp;&emsp;&emsp;&emsp;"athena:StartQueryExecution",  
+&emsp;&emsp;&emsp;&emsp;"athena:GetQueryExecution",  
+&emsp;&emsp;&emsp;&emsp;"athena:GetQueryResults",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:ListUsers",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:CreateUser",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:CreateAdmin",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DescribeDataSource",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:UpdateDataSourcePermissions",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:UpdateDataSetPermissions",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:PassDataSource",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:CreateDataSet",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DescribeDataSet",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:PassDataSet"  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DescribeTemplate",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:CreateDataSource",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:CreateDashboard",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DescribeDashboard",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:UpdateDashboardPermissions"  
+&emsp;&emsp;&emsp;],  
+&emsp;&emsp;&emsp;"Resource": "*"  
+&emsp;&emsp;}  
+&emsp;]  
 }  
 
 脚本工具 “deleteAll.sh” 所需的额外权限集为:  
 {  
- "Version": "2020-08-04",  
- "Statement": [  
- {  
- "Sid": "deleteAllPolicy",  
- "Effect": "Allow",  
- "Action": [  
-"quicksight:DeleteDataSource",  
-"quicksight:DeleteDataSet",  
-"quicksight:DeleteDashboard"  
- ],  
- "Resource": "*"  
- }  
- ]  
+&emsp; "Version": "2020-08-04",  
+&emsp; "Statement": [  
+&emsp;&emsp; {  
+&emsp;&emsp;&emsp; "Sid": "deleteAllPolicy",  
+&emsp;&emsp;&emsp; "Effect": "Allow",  
+&emsp;&emsp;&emsp; "Action": [  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DeleteDataSource",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DeleteDataSet",  
+&emsp;&emsp;&emsp;&emsp;"quicksight:DeleteDashboard"  
+&emsp;&emsp;&emsp; ],  
+&emsp;&emsp;&emsp; "Resource": "*"  
+&emsp;&emsp; }  
+&emsp; ]  
 }  
