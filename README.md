@@ -127,55 +127,55 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
  "Action": [  
 "EC2:DescribeRegions",  
 "s3:GetBucketLocation",  
-"s3:ListBucket",
-"s3:PutObject",
- "s3:GetObject",
- "glue:GetPartitions",
-"glue:GetDatabase",
-"glue:GetDatabases",
-"glue:GetTable",
-"glue:GetTables",
-"athena:ListDatabases",
- "athena:GetDatabase",
-"athena:ListTableMetadata",
-"athena:GetTableMetadata",
-"athena:StartQueryExecution",
-"athena:GetQueryExecution",
-"athena:GetQueryResults",
-"quicksight:ListUsers",
-"quicksight:CreateUser",
-"quicksight:CreateAdmin",
- "quicksight:DescribeDataSource",
-"quicksight:UpdateDataSourcePermissions",
- "quicksight:UpdateDataSetPermissions",
- "quicksight:PassDataSource",
-"quicksight:CreateDataSet",
-"quicksight:DescribeDataSet",
-"quicksight:PassDataSet"
- "quicksight:DescribeTemplate",
-"quicksight:CreateDataSource",
-"quicksight:CreateDashboard",
-"quicksight:DescribeDashboard",
- "quicksight:UpdateDashboardPermissions"
- ],
- "Resource": "*"
- }
- ]
-}
+"s3:ListBucket",  
+"s3:PutObject",  
+ "s3:GetObject",  
+ "glue:GetPartitions",  
+"glue:GetDatabase",  
+"glue:GetDatabases",  
+"glue:GetTable",  
+"glue:GetTables",  
+"athena:ListDatabases",  
+ "athena:GetDatabase",  
+"athena:ListTableMetadata",  
+"athena:GetTableMetadata",  
+"athena:StartQueryExecution",  
+"athena:GetQueryExecution",  
+"athena:GetQueryResults",  
+"quicksight:ListUsers",  
+"quicksight:CreateUser",  
+"quicksight:CreateAdmin",  
+ "quicksight:DescribeDataSource",  
+"quicksight:UpdateDataSourcePermissions",  
+ "quicksight:UpdateDataSetPermissions",  
+ "quicksight:PassDataSource",  
+"quicksight:CreateDataSet",  
+"quicksight:DescribeDataSet",  
+"quicksight:PassDataSet"  
+ "quicksight:DescribeTemplate",  
+"quicksight:CreateDataSource",  
+"quicksight:CreateDashboard",  
+"quicksight:DescribeDashboard",  
+ "quicksight:UpdateDashboardPermissions"  
+ ],  
+ "Resource": "*"  
+ }  
+ ]  
+}  
 
 脚本工具 “deleteAll.sh” 所需的额外权限集为:  
-{
- "Version": "2020-08-04",
- "Statement": [
- {
- "Sid": "deleteAllPolicy",
- "Effect": "Allow",
- "Action": [
-"quicksight:DeleteDataSource",
-"quicksight:DeleteDataSet",
-"quicksight:DeleteDashboard"
- ],
- "Resource": "*"
- }
- ]
-}
+{  
+ "Version": "2020-08-04",  
+ "Statement": [  
+ {  
+ "Sid": "deleteAllPolicy",  
+ "Effect": "Allow",  
+ "Action": [  
+"quicksight:DeleteDataSource",  
+"quicksight:DeleteDataSet",  
+"quicksight:DeleteDashboard"  
+ ],  
+ "Resource": "*"  
+ }  
+ ]  
+}  
