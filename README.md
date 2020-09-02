@@ -75,14 +75,11 @@ bash deployQSCUR.sh
 
 
 6.脚本运行过程中会收集一些配置信息，按需求填写即可
-*注：如您完全按照本博客内容进行配置，且计划把 QuickSight Dashboard 部署在美东一区域，全部保持默认值即可*
-a. Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:us-east-1]
-
-b. Please input the database name in Athena, which will be used to connect CUR data on S3
-
-c. Please input the table name within database in previous step, which will be used to connect CUR data on S3
-
-d. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].
+*注：如您完全按照本博客内容进行配置，且计划把 QuickSight Dashboard 部署在美东一区域，全部保持默认值即可*  
+a. Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:us-east-1]  
+b. Please input the database name in Athena, which will be used to connect CUR data on S3  
+c. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
+d. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
 
 7.脚本成功运行后，即可打开 QuickSight Dashboard 进行成本分析
 
@@ -98,29 +95,29 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 
 ### 本方案涉及的主要成本:
 
-1.QuickSight 企业版订阅费，根据订阅方式不同，每月 $18 或 $24 美元
+1.QuickSight 企业版订阅费，根据订阅方式不同，每月 $18 或 $24 美元  
     https://aws.amazon.com/cn/quicksight/pricing/
-2.Athena 数据查询费用
-    以美东一区域为例，每扫描 1TB 数据 $5.00 美元
+2.Athena 数据查询费用  
+    以美东一区域为例，每扫描 1TB 数据 $5.00 美元  
     https://aws.amazon.com/cn/athena/pricing/
-3.S3 数据存储费用
+3.S3 数据存储费用  
     以美东一区域为例
     每 1GB 数据存储1个月成本为 $0.023 美元
     每 1,000 个 GET 请求 $0.0004 美元
     https://aws.amazon.com/cn/s3/pricing/
-4.每天运行 2~3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态
+4.每天运行 2~3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态  
     以美东一区域为例，每 DPU-Hour $0.44 美元，按秒计费，每运行一次最小计费单元为10分钟
     https://aws.amazon.com/cn/glue/pricing/
-5.每天运行 2~3 次的 Lambda 程序，用来触发 Glue Crawler 
+5.每天运行 2~3 次的 Lambda 程序，用来触发 Glue Crawler  
     以美东一区域为例，配置为 128MB 内存, 每秒 $0.000002083 美元
     https://aws.amazon.com/cn/lambda/pricing/
-6.如果您在 EC2 或 Cloud 9 上运行此脚本工具，将会按照实例类型单独收取相关费用
+6.如果您在 EC2 或 Cloud 9 上运行此脚本工具，将会按照实例类型单独收取相关费用  
     https://aws.amazon.com/cn/ec2/pricing/on-demand/
     https://aws.amazon.com/cn/cloud9/pricing/
 
 ### **所需最小权限 :**
 
-脚本工具 “deployQSCUR.sh” 所需的最小权限集为:
+脚本工具 “deployQSCUR.sh” 所需的最小权限集为:  
 {
  "Version": "2020-08-04",
  "Statement": [
@@ -166,7 +163,7 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
  ]
 }
 
-脚本工具 “deleteAll.sh” 所需的额外权限集为:
+脚本工具 “deleteAll.sh” 所需的额外权限集为:  
 {
  "Version": "2020-08-04",
  "Statement": [
