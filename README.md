@@ -5,15 +5,18 @@
 * 此向导中用到的脚本工具是基于 Mac 进行设计的。如果您用的是 Windows 系统，请拷贝至 AWS Amazon Linux 或 AWS Cloud 9 上运行
 
 ### **先决条件:**
-
+< br >
 1.已经配置好 AWS CLI 运行环境（aws-cli/1.18.79 或更新版本）
     https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration
+< br >
 2.确保您的 IAM 用户打开过 QuickSight 控制台进行过用户订阅
     https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/setup-quicksight-for-existing-aws-account.html
+< br >
 3.升级为 QuickSight 企业版本
     https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/upgrading-subscription.html
     注意: 如果您之前尚未使用过 QuickSight，启用企业版每月会增加 $18 或 $24 的用户订阅成本
     [https://aws.amazon.com/cn/quicksight/pricing/](https://aws.amazon.com/cn/quicksight/pricing/?nc1=h_ls)
+< br >
 4.已经安装了 “jq” 工具用于解析 json 字符串
 
 *   在 Amazon linux 或 Cloud 9 上安装 jq
