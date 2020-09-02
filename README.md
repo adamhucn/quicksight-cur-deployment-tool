@@ -34,7 +34,7 @@ brew install jq
 ### **部署步骤:**
 
 1.浏览“[设置 Athena 集成](https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html)” 部分创建 S3 Bucket，启用 CUR 报告(选择 **Parquet** 格式)并用 CloudFormation 模版设置 Athena  
-https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html  
+&emsp;https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html  
 
 **【可选】**: 如果您想要分析由 AWS 中国区域生产的 CUR 报告，需要把 CUR 报告从中国区的 S3 Bucket 同步到 Global 区域中的 S3 Bucket 中，然后再继续此文档的其它步骤  
 a.在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket  
@@ -52,11 +52,11 @@ d. 使用 CloudFormation 模版设置 Athena 集成，然后继续第二步
 
 * 替换 *S3-bucket-name* 为您自己的 S3 Bucket Name，替换 *china-iam-profile *为AWS 中国区域 IAM 用户的 AWS CLI profile， 替换  *global-iam-profile *为AWS Global 区域 IAM 用户的 AWS CLI profile  
 * 如果您希望利用无服务器化的方式进行同步，可参考此博客进行配置  
-https://aws.amazon.com/cn/blogs/china/lambda-overseas-china-s3-file/  
+&emsp;https://aws.amazon.com/cn/blogs/china/lambda-overseas-china-s3-file/  
 
 2.设置存储 CUR Report 的 S3 Bucket 的访问权限，以便 QuickSight 可以正常读取所需数据  
-    https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/troubleshoot-athena-insufficient-permissions.html  
-3.访问[此站点](https://d12s69h9il8nze.cloudfront.net/)，输入公司名称和 AWS Account ID 进行模版访问授权  
+&emsp;    https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/troubleshoot-athena-insufficient-permissions.html  
+3.访问 [此站点](https://d12s69h9il8nze.cloudfront.net/)，输入公司名称和 AWS Account ID 进行模版访问授权  
 4.打开 [Github](https://github.com/adamhucn/quicksight-cur-deployment-tool) 链接，选择 “Code → Download ZIP ” 下载 quicksight-cur-deployment-tool[](https://github.com/adamhucn/quicksight-cur-deployment-tool)  
 5.进入解压后的文件夹，然后运行  “deployQSCUR.sh” 脚本工具  
 
