@@ -119,10 +119,10 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 
 脚本工具 “deployQSCUR.sh” 所需的最小权限集为:  
 {  
- "Version": "2020-08-04",  
- "Statement": [  
- {  
- "Sid": "deployQSCURPolicy",  
+ &emsp;"Version": "2020-08-04",  
+ &emsp;"Statement": [  
+ &emsp;&emsp;{  
+ &emsp;&emsp;&emsp;"Sid": "deployQSCURPolicy",  
  "Effect": "Allow",  
  "Action": [  
 "EC2:DescribeRegions",  
