@@ -98,10 +98,10 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 &emsp;    每 1GB 数据存储1个月成本为 $0.023 美元  
 &emsp;    每 1,000 个 GET 请求 $0.0004 美元  
 &emsp;    https://aws.amazon.com/cn/s3/pricing/  
-4.每天运行 2~3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态  
+4.每天运行 2-3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态  
 &emsp;    以美东一区域为例，每 DPU-Hour $0.44 美元，按秒计费，每运行一次最小计费单元为10分钟  
 &emsp;    https://aws.amazon.com/cn/glue/pricing/  
-5.每天运行 2~3 次的 Lambda 程序，用来触发 Glue Crawler  
+5.每天运行 2-3 次的 Lambda 程序，用来触发 Glue Crawler  
 &emsp;    以美东一区域为例，配置为 128MB 内存, 每秒 $0.000002083 美元  
 &emsp;    https://aws.amazon.com/cn/lambda/pricing/  
 6.如果您在 EC2 或 Cloud 9 上运行此脚本工具，将会按照实例类型单独收取相关费用  
