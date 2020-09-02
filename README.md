@@ -5,18 +5,15 @@
 * 此向导中用到的脚本工具是基于 Mac 进行设计的。如果您用的是 Windows 系统，请拷贝至 AWS Amazon Linux 或 AWS Cloud 9 上运行
 
 ### **先决条件:**
-< br >
+
 1.已经配置好 AWS CLI 运行环境（aws-cli/1.18.79 或更新版本）
     https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration
-< br >
 2.确保您的 IAM 用户打开过 QuickSight 控制台进行过用户订阅
     https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/setup-quicksight-for-existing-aws-account.html
-< br >
 3.升级为 QuickSight 企业版本
     https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/upgrading-subscription.html
     注意: 如果您之前尚未使用过 QuickSight，启用企业版每月会增加 $18 或 $24 的用户订阅成本
     [https://aws.amazon.com/cn/quicksight/pricing/](https://aws.amazon.com/cn/quicksight/pricing/?nc1=h_ls)
-< br >
 4.已经安装了 “jq” 工具用于解析 json 字符串
 
 *   在 Amazon linux 或 Cloud 9 上安装 jq
@@ -40,16 +37,16 @@ brew install jq
 https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html
 
 **【可选】**: 如果您想要分析由 AWS 中国区域生产的 CUR 报告，需要把 CUR 报告从中国区的 S3 Bucket 同步到 Global 区域中的 S3 Bucket 中，然后再继续此文档的其它步骤
-a.在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket
-b. 在中国区域创建 CUR 报告，并保存到准备好的 S3 Bucket 中
-c. 准备一个长期运行的 EC2 实例，配置 Cron job 定期运行如下命令，以便同步中国区域和Global区域的 CUR 数据
+a.在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket  
+b. 在中国区域创建 CUR 报告，并保存到准备好的 S3 Bucket 中  
+c. 准备一个长期运行的 EC2 实例，配置 Cron job 定期运行如下命令，以便同步中国区域和Global区域的 CUR 数据  
 
 ```
 aws s3 sync s3://*S3-bucket-name* . --exclude "aws-programmatic-access-test-object" --exclude "*/cost_and_usage_data_status/cost_and_usage_data_status.parquet" —profile *china-iam-profile*
 aws s3 sync . s3://*S3-bucket-name* --acl bucket-owner-full-control —profile *global-iam-profile*
 ```
 
-d. 使用 CloudFormation 模版设置 Athena 集成，然后继续第二步
+d. 使用 CloudFormation 模版设置 Athena 集成，然后继续第二步  
 
 注意：
 
@@ -93,12 +90,11 @@ d. Please input the "Query result location" value from Settings in Athena consol
 
 如果您想基于现有QuickSight Dashboard 编辑自定义视图，可以在控制台中启用“另存为”功能
 
-a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”
-b. 在弹出的窗口中，选择 “管理控制面板访问”
-c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项，然后
-d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项
-e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了
-
+a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”  
+b. 在弹出的窗口中，选择 “管理控制面板访问”  
+c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项，然后  
+d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项  
+e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了  
 
 ### 本方案涉及的主要成本:
 
