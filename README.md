@@ -1,9 +1,5 @@
 # quicksight-cur-deployment-tool
 
-## 方案部署：
-
-为了让您能够更加方便的利用QuickSight 进行成本可视化，我们制作了一个易于部署的脚本工具，并将整体步骤整理如下：
-
 ### 注意: 
 
 * 此向导中用到的脚本工具是基于 Mac 进行设计的。如果您用的是 Windows 系统，请拷贝至 AWS Amazon Linux 或 AWS Cloud 9 上运行
@@ -92,10 +88,8 @@ d. Please input the "Query result location" value from Settings in Athena consol
 如果您想基于现有QuickSight Dashboard 编辑自定义视图，可以在控制台中启用“另存为”功能
 
 a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”
-[Image: image.png]
 b. 在弹出的窗口中，选择 “管理控制面板访问”
 c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项，然后
-[Image: image.png]
 d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项
 e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了
 
