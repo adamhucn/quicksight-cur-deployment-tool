@@ -1,5 +1,5 @@
 {"string": {
-      "Alias": "cur_parquet_adamhu",
+      "Alias": "cur_table_alias",
       "DataTransforms": [
             {
                 "TagColumnOperation": {
