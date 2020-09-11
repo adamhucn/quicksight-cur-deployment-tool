@@ -82,8 +82,8 @@ If you want to have a customized view based on existing QuickSight dashboard, yo
 
 a. Open the dashboard, then click "share" button from upper right corner  
 b. In the pop up window click “Manage Dashboard access”  
-c. On “Manage Dashboard access” page，tick "Save as" for your account, click "Confirm" on “启用另存为” page  
-d. Close “Manage Dashboard access” window，then you will see a new "Save as" button appear on the upper right corner  
+c. On “Manage Dashboard access” page，tick "Save as" for your account  
+d. Click "Confirm" on “Enable save as” window, close “Manage Dashboard access”，then you will see a new "Save as" button appear on the upper right corner  
 e. Click "Save as" to create an analysis from this dashboard. Now you can customize any visual on new analysis.  
 
 ### Main cost of this solution:  
