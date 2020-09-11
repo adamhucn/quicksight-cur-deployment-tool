@@ -34,7 +34,6 @@ brew install jq
 ### **Steps:**
 
 1.Go through“[Setting up Amazon Athena integration](https://docs.aws.amazon.com/cur/latest/userguide/cur-ate-setup.html)” to create S3 bucket/CUR(choose **Parquet** format) and set up Athena integration by CloudFormation.  
-&emsp;https://docs.aws.amazon.com/cur/latest/userguide/cur-ate-setup.html  
 
 **[Optional]**: If you want to analyze CUR created from China region, you need to sync CUR data between China and global region  
 a. Create two S3 buckets in China region and global region separately, use the same bucket name  
