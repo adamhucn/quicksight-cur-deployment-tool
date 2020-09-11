@@ -34,7 +34,6 @@ brew install jq
 ### **部署步骤:**
 
 1.浏览“[设置 Athena 集成](https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html)” 部分创建 S3 Bucket，启用 CUR 报告(选择 **Parquet** 格式)并用 CloudFormation 模版设置 Athena  
-&emsp;https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html  
 
 **【可选】**: 如果您想要分析由 AWS 中国区域生产的 CUR 报告，需要把 CUR 报告从中国区的 S3 Bucket 同步到 Global 区域中的 S3 Bucket 中，然后再继续此文档的其它步骤  
 a. 在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket  
