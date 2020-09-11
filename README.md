@@ -111,7 +111,7 @@ e. Click "Save as" to create an analysis from this dashboard. Now you can custom
 
 The minimal permissions for “deployQSCUR.sh” are:  
 {  
-&emsp;"Version": "2020-08-04",  
+&emsp;"Version": "2012-10-17",  
 &emsp;"Statement": [  
 &emsp;&emsp;{  
 &emsp;&emsp;&emsp;"Sid": "deployQSCURPolicy",  
@@ -157,7 +157,7 @@ The minimal permissions for “deployQSCUR.sh” are:
 
 More permissions necessary for “deleteAll.sh” are:  
 {  
-&emsp; "Version": "2020-08-04",  
+&emsp; "Version": "2012-10-17",  
 &emsp; "Statement": [  
 &emsp;&emsp; {  
 &emsp;&emsp;&emsp; "Sid": "deleteAllPolicy",  
