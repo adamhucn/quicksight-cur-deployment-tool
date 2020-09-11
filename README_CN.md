@@ -111,7 +111,7 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 
 脚本工具 “deployQSCUR.sh” 所需的最小权限集为:  
 {  
-&emsp;"Version": "2020-08-04",  
+&emsp;"Version": "2012-10-17",  
 &emsp;"Statement": [  
 &emsp;&emsp;{  
 &emsp;&emsp;&emsp;"Sid": "deployQSCURPolicy",  
@@ -157,7 +157,7 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 
 脚本工具 “deleteAll.sh” 所需的额外权限集为:  
 {  
-&emsp; "Version": "2020-08-04",  
+&emsp; "Version": "2012-10-17",  
 &emsp; "Statement": [  
 &emsp;&emsp; {  
 &emsp;&emsp;&emsp; "Sid": "deleteAllPolicy",  
