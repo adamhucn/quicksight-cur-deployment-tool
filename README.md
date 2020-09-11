@@ -1,6 +1,6 @@
 # quicksight-cur-deployment-tool
 
-### 注意: 
+### Note: 
 
 * This guide is designed on Mac client. If you are using a Windows PC. Consider to run this on Amazon Linux or Cloud 9.
 
@@ -76,41 +76,41 @@ d. Please input the "Query result location" value from Settings in Athena consol
 
 7.Open your QuickSight dashboard to analyze cost  
 
-## **自定义分析视图:**  
+## **Customize your analysis:**  
 
-如果您想基于现有QuickSight Dashboard 编辑自定义视图，可以在控制台中启用“另存为”功能  
+If you want to have a customized view based on existing QuickSight dashboard, you can enable the "Save As" function in the console  
 
-a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”  
-b. 在弹出的窗口中，选择 “管理控制面板访问”  
-c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项，然后  
-d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项  
-e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了  
+a. Open the dashboard, then click "share" button from upper right corner  
+b. In the pop up window click “Manage Dashboard access”  
+c. On “Manage Dashboard access” page，tick "Save as" for your account, click "Confirm" on “启用另存为” page  
+d. Close “Manage Dashboard access” window，then you will see a new "Save as" button appear on the upper right corner  
+e. Click "Save as" to create an analysis from this dashboard. Now you can customize any visual on new analysis.  
 
-### 本方案涉及的主要成本:  
+### Main cost of this solution:  
 
-1.QuickSight 企业版订阅费，根据订阅方式不同，每月 $18 或 $24 美元  
-&emsp;    https://aws.amazon.com/cn/quicksight/pricing/  
-2.Athena 数据查询费用  
-&emsp;    以美东一区域为例，每扫描 1TB 数据 $5.00 美元  
-&emsp;    https://aws.amazon.com/cn/athena/pricing/  
-3.S3 数据存储费用  
-&emsp;    以美东一区域为例  
-&emsp;    每 1GB 数据存储1个月成本为 $0.023 美元  
-&emsp;    每 1,000 个 GET 请求 $0.0004 美元  
-&emsp;    https://aws.amazon.com/cn/s3/pricing/  
-4.每天运行 2-3 次的 Glue Crawler，可以使您在 Athena 中的 CUR Table 保持最新状态  
-&emsp;    以美东一区域为例，每 DPU-Hour $0.44 美元，按秒计费，每运行一次最小计费单元为10分钟  
-&emsp;    https://aws.amazon.com/cn/glue/pricing/  
-5.每天运行 2-3 次的 Lambda 程序，用来触发 Glue Crawler  
-&emsp;    以美东一区域为例，配置为 128MB 内存, 每秒 $0.000002083 美元  
-&emsp;    https://aws.amazon.com/cn/lambda/pricing/  
-6.如果您在 EC2 或 Cloud 9 上运行此脚本工具，将会按照实例类型单独收取相关费用  
-&emsp;    https://aws.amazon.com/cn/ec2/pricing/on-demand/  
-&emsp;    https://aws.amazon.com/cn/cloud9/pricing/  
+1.QuickSight Enterprise Edition, $18 or $24 per month based on your subscription  
+&emsp;    https://aws.amazon.com/quicksight/pricing/  
+2.Athena query cost
+&emsp;    Take us-east-1 as example，$5.00 per TB of data scanned  
+&emsp;    https://aws.amazon.com/athena/pricing/  
+3.S3 S3 standard storage cost   
+&emsp;    Take us-east-1 as example  
+&emsp;    $0.023 per GB for storage  
+&emsp;    $0.0004 per 1,000 GET requests on CUR file  
+&emsp;    https://aws.amazon.com/s3/pricing/  
+4.A recurring(2-3 times a day) Glue crawler that keeps your CUR table in Athena up-to-date  
+&emsp;    Take us-east-1 as example, $0.44 per DPU-Hour, billed per second, with a 10-minute minimum per crawler run  
+&emsp;    https://aws.amazon.com/glue/pricing/  
+5.A recurring(2-3 times a day) Lambda to trigger Athena table update  
+&emsp;    Take us-east-1 as example，128MB, $0.000002083 per second  
+&emsp;    https://aws.amazon.com/lambda/pricing/  
+6.If you run this script tool on EC2 or Cloud 9, will have additional cost based on you instance type  
+&emsp;    https://aws.amazon.com/ec2/pricing/on-demand/  
+&emsp;    https://aws.amazon.com/cloud9/pricing/  
 
-### **所需最小权限 :**  
+### **Minimal permissions :**  
 
-脚本工具 “deployQSCUR.sh” 所需的最小权限集为:  
+The minimal permissions for “deployQSCUR.sh” are:  
 {  
 &emsp;"Version": "2020-08-04",  
 &emsp;"Statement": [  
@@ -156,7 +156,7 @@ e. 单击“另存为” 创建一个新的分析后，您即可根据自己的�
 &emsp;]  
 }  
 
-脚本工具 “deleteAll.sh” 所需的额外权限集为:  
+More permissions necessary for “deleteAll.sh” are:  
 {  
 &emsp; "Version": "2020-08-04",  
 &emsp; "Statement": [  
