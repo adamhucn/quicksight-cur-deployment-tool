@@ -37,7 +37,7 @@ brew install jq
 &emsp;https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html  
 
 **【可选】**: 如果您想要分析由 AWS 中国区域生产的 CUR 报告，需要把 CUR 报告从中国区的 S3 Bucket 同步到 Global 区域中的 S3 Bucket 中，然后再继续此文档的其它步骤  
-a.在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket  
+a. 在 AWS 中国区域和 Global 区域分别创建两个同名 S3 Bucket  
 b. 在中国区域创建 CUR 报告，并保存到准备好的 S3 Bucket 中  
 c. 准备一个长期运行的 EC2 实例，配置 Cron job 定期运行如下命令，以便同步中国区域和Global区域的 CUR 数据  
 
@@ -82,7 +82,7 @@ d. Please input the "Query result location" value from Settings in Athena consol
 
 a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”  
 b. 在弹出的窗口中，选择 “管理控制面板访问”  
-c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项，然后  
+c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项  
 d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项  
 e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了  
 
