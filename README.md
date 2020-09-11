@@ -33,8 +33,6 @@ brew install jq
 
 ### **Steps:**
 
-1.浏览“[设置 Athena 集成](https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html)” 部分创建 S3 Bucket，启用 CUR 报告(选择 **Parquet** 格式)并用 CloudFormation 模版设置 Athena  
-&emsp;https://docs.aws.amazon.com/zh_cn/cur/latest/userguide/cur-ate-setup.html  
 1.Go through“[Setting up Amazon Athena integration](https://docs.aws.amazon.com/cur/latest/userguide/cur-ate-setup.html)” to create S3 bucket/CUR(choose **Parquet** format) and set up Athena integration by CloudFormation.  
 &emsp;https://docs.aws.amazon.com/cur/latest/userguide/cur-ate-setup.html  
 
@@ -56,11 +54,11 @@ Note：
 * If you want to synchorize CUR by a serverless architecture, please reference this blog  
 https://aws.amazon.com/cn/blogs/china/lambda-overseas-china-s3-file/  
 
-2.设置存储 CUR Report 的 S3 Bucket 的访问权限，以便 QuickSight 可以正常读取所需数据  
+2.Grant permissions on S3 bucket, so that QuickSight can access CUR files stored in it
 &emsp;    https://docs.aws.amazon.com/zh_cn/quicksight/latest/user/troubleshoot-athena-insufficient-permissions.html  
-3.访问 [此站点](https://d12s69h9il8nze.cloudfront.net/)，输入公司名称和 AWS Account ID 进行模版访问授权  
-4.打开 [Github](https://github.com/adamhucn/quicksight-cur-deployment-tool) 链接，选择 “Code → Download ZIP ” 下载 quicksight-cur-deployment-tool[](https://github.com/adamhucn/quicksight-cur-deployment-tool)  
-5.进入解压后的文件夹，然后运行  “deployQSCUR.sh” 脚本工具  
+3.Visit [this site](https://d12s69h9il8nze.cloudfront.net/)，enter company name and AWS Account ID to authorize permissions for QuickSight template  
+4.Open [Github](https://github.com/adamhucn/quicksight-cur-deployment-tool) ，click “Code → Download ZIP ” to download quicksight-cur-deployment-tool[](https://github.com/adamhucn/quicksight-cur-deployment-tool)  
+5.Navigate to extracted folder and run “deployQSCUR.sh”  
 
 ```
 cd quicksight-cur-deployment-tool-master
@@ -69,14 +67,14 @@ cd quicksight-cur-deployment-tool-master
 bash deployQSCUR.sh
 ```
 
-6.脚本运行过程中会收集一些配置信息，按需求填写即可  
-*注：如您完全按照本博客内容进行配置，且计划把 QuickSight Dashboard 部署在美东一区域，全部保持默认值即可*  
+6.Type answers for following questions prompted by this script
+*Note：If all steps according to the content of this guide，and plan to deploy QuickSight Dashboard in us-east-1，keep all the defauls is ok*  
 a. Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:us-east-1]  
 b. Please input the database name in Athena, which will be used to connect CUR data on S3  
 c. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
 d. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
 
-7.脚本成功运行后，即可打开 QuickSight Dashboard 进行成本分析  
+7.Open your QuickSight dashboard to analyze cost  
 
 ## **自定义分析视图:**  
 
