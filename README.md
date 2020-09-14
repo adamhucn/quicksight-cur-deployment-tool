@@ -83,7 +83,11 @@ a. Open the dashboard, then click "share" button from upper right corner
 b. In the pop up window click “Manage Dashboard access”  
 c. On “Manage Dashboard access” page，tick "Save as" for your account  
 d. Click "Confirm" on “Enable save as” window, close “Manage Dashboard access”，then you will see a new "Save as" button appear on the upper right corner  
-e. Click "Save as" to create an analysis from this dashboard. Now you can customize any visual on new analysis.  
+e. Click "Save as" to create an analysis and name it
+f. Click the edit icon to edit data set
+g. Select your data set in "Data sets in this analysis" window to edit it
+h. Wait a few seconds to load all CUR columns in data set page, then click "Save&visualize" to update the latest CUR columns into data set. Then you can customize your analysis according to your needs.
+
 
 ### Main cost of this solution:  
 
