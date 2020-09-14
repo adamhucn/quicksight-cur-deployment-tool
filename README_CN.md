@@ -82,8 +82,11 @@ d. Please input the "Query result location" value from Settings in Athena consol
 a. 打开 QuickSight Dashboard，单击右上角的“共享”，然后选择“共享控制面板”  
 b. 在弹出的窗口中，选择 “管理控制面板访问”  
 c. 在 “管理控制面板访问”页面中，对需要授权的账号勾选“另存为”选项  
-d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，即可在 Dashboard 右上角看到新增的“另存为”选项  
-e. 单击“另存为” 创建一个新的分析后，您即可根据自己的需求在分析面板中进行自定义了  
+d. 在“启用另存为”窗口中单击“确认”，关闭 “管理控制面板访问”弹窗后，QuickSight Dashboard 右上角会新增一个“另存为”选项  
+e. 单击“另存为” 创建一个新的分析并为其命名  
+f.  在新建的 Analysis 中单击“Data set” 图标进行编辑  
+g. 在弹出的 “Data sets in this analysis” 页面中选中 Data set 进行编辑  
+h. 进入到 Data set 编辑页面后等待所有 CUR 字段加载完成，然后单击 “Save&visualize” 更新 Data set 中的 CUR 字段后，您即可根据自己的需求在 analysis 面板中自定义成本视图了  
 
 ### 本方案涉及的主要成本:  
 
