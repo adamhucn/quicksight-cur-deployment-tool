@@ -69,9 +69,10 @@ bash deployQSCUR.sh
 6.Type answers for following questions prompted by this script
 *Note：If all steps according to the content of this guide，and plan to deploy QuickSight Dashboard in us-east-1，keep all the defauls is ok*  
 a. Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:us-east-1]  
-b. Please input the database name in Athena, which will be used to connect CUR data on S3  
-c. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
-d. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
+b. If you know what SPICE is and want to use SPICE mode, type “spice”. [default:DIRECT_QUERY]  
+c. Please input the database name in Athena, which will be used to connect CUR data on S3  
+d. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
+e. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
 
 7.Open your QuickSight dashboard to analyze cost  
 
