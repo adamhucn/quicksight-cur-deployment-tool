@@ -69,9 +69,10 @@ bash deployQSCUR.sh
 6.脚本运行过程中会收集一些配置信息，按需求填写即可  
 *注：如您完全按照本博客内容进行配置，且计划把 QuickSight Dashboard 部署在美东一区域，全部保持默认值即可*  
 a. Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:us-east-1]  
-b. Please input the database name in Athena, which will be used to connect CUR data on S3  
-c. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
-d. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
+b. If you know what SPICE is and want to use SPICE mode, type “spice”. [default:DIRECT_QUERY]  
+c. Please input the database name in Athena, which will be used to connect CUR data on S3  
+d. Please input the table name within database in previous step, which will be used to connect CUR data on S3  
+e. Please input the "Query result location" value from Settings in Athena console [default: s3://aws-athena-query-results-*ACCOUNTID*-*REGION*/].  
 
 7.脚本成功运行后，即可打开 QuickSight Dashboard 进行成本分析  
 
