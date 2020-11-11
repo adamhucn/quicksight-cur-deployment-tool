@@ -1,6 +1,6 @@
 ### Powered by AWS Enterprise Support 
 ### Mail: tam-solution-costvisualization@amazon.com
-### Version 0.9
+### Version 1.1
 
 checkJQ() {
 	# Check if jq is an executable command
@@ -601,7 +601,7 @@ selectRegion() {
 	echo -e "Please enter the destination region to deploy this solution(same with Athena/QuickSight) [default:\033[1;36m$CURRENTREGION\033[0m]"
 	read -p "Destination Region:" REGIONCUR
 
-	# If consolut input meet the regex, set is as destination region
+	# If console input meet the regex, set is as destination region
 	if [[ $REGIONCUR =~ ^[a-z]{2,2}-[a-z]{3,9}-[1-9]{1,3}$ ]];then
 		return
 
@@ -609,10 +609,36 @@ selectRegion() {
 	elif [ "$REGIONCUR" = "" ];then
 		REGIONCUR=$CURRENTREGION	
 
-	# If consolut input doesn't meet the regex, run selectRegion again
+	# If console input doesn't meet the regex, run selectRegion again
 	else		
 		echo "Invalid region! Please enter correct region name."
 		selectRegion
+		return
+	fi
+
+}
+
+chooseQueryMode() {
+
+	# Set the default query mode as DIRECT_QUERY
+	QUERYMODE="DIRECT_QUERY"
+
+	# Choose the query mode
+	echo -e "If you know what SPICE is and want to use SPICE mode, type \"spice\". [default:\033[1;36m$QUERYMODE\033[0m]"
+	read -p "Query Mode:" QUERYMODESTRING
+
+	# If user choose SPICE, change the value of QUERYMODE
+	if [ "$QUERYMODESTRING" = "spice" -o "$QUERYMODESTRING" = "SPICE" ];then
+		QUERYMODE="SPICE"
+
+	# If console input is null, keep query mode as default 
+	elif [ "$QUERYMODESTRING" = "" ];then
+		:
+
+	# If console input is not valid, run chooseQueryMode again
+	else		
+		echo "Invalid value! Please enter \"spice\" or keep default."
+		chooseQueryMode
 		return
 	fi
 
@@ -719,6 +745,9 @@ UNAME=`uname`
 # Define the QuickSight template, this is maintained by AWS GCR Enterprise Support team
 QSTEMARN="arn:aws:quicksight:us-east-1:673437017715:template/CUR-MasterTemplate-Pub"
 
+# Choose the query mode, default is DIRECT_QUERY
+chooseQueryMode
+
 # Get Athena database/table and query result location
 getAthenaConfiguration
 
@@ -726,7 +755,7 @@ getAthenaConfiguration
 getCURDataSourceRegion
 
 # We need to get the raw date format in CUR, then define ETL configuration in locagical config file in necessary
-getCURDateFormat		
+getCURDateFormat
 
 # Generate physical configuration file
 PHYSICALTEMFILE="do-not-delete-physical-tem"
@@ -802,12 +831,6 @@ done
 
 # Authorize permissons for DataSource created just now
 updateDataSourcePermissions
-
-# Set the query mode as DIRECT_QUERY
-QUERYMODE="DIRECT_QUERY"
-
-# If you want to use SPICE mode, un-comment following line
-# QUERYMODE="SPICE"
 
 # Get the DataSource ARN created in previous step, prepared for DataSet creation
 DATASOURCEARN=`aws quicksight describe-data-source --aws-account-id $AccountID --data-source-id $DATASOURCEID | jq -r '.DataSource.Arn'`
