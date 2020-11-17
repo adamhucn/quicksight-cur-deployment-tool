@@ -89,6 +89,14 @@
 	            "Type": "STRING"
 	        },
 	        {
+	            "Name": "savings_plan_net_amortized_upfront_commitment_for_billing_period",
+	            "Type": "DECIMAL"
+	        },
+	        {
+	            "Name": "savings_plan_net_recurring_commitment_for_billing_period",
+	            "Type": "DECIMAL"
+	        },
+	        {
 	            "Name": "savings_plan_net_savings_plan_effective_cost",
 	            "Type": "DECIMAL"
 	        }
