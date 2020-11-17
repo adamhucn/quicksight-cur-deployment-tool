@@ -1,6 +1,6 @@
 ### Powered by AWS Enterprise Support 
 ### Mail: tam-solution-costvisualization@amazon.com
-### Version 0.9
+### Version 1.0
 
 checkJQ() {
 	# Check if jq is an executable command
