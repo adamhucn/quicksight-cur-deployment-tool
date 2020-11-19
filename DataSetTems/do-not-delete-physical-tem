@@ -93,10 +93,6 @@
 	            "Type": "STRING"
 	        },
 	        {
-	            "Name": "savings_plan_region",
-	            "Type": "STRING"
-	        },
-	        {
 	            "Name": "savings_plan_net_amortized_upfront_commitment_for_billing_period",
 	            "Type": "DECIMAL"
 	        },
