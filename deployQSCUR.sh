@@ -1,6 +1,6 @@
 ### Powered by AWS Enterprise Support 
 ### Mail: tam-solution-costvisualization@amazon.com
-### Version 1.21
+### Version 1.21.1
 
 checkJQ() {
 	# Check if jq is an executable command
@@ -734,7 +734,7 @@ selectRegion
 export AWS_DEFAULT_REGION=$REGIONCUR
 
 # Get the running profile
-stsresult=`aws sts get-caller-identity`
+stsresult=`aws sts get-caller-identity --output=json`
 
 # Get the Account ID by running profile
 AccountID=`echo $stsresult | jq -r '.Account'`
