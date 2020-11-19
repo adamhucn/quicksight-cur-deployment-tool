@@ -1,6 +1,6 @@
 ### Powered by AWS Enterprise Support 
 ### Mail: tam-solution-costvisualization@amazon.com
-### Version 1.2
+### Version 1.21
 
 checkJQ() {
 	# Check if jq is an executable command
@@ -330,11 +330,14 @@ updateConfigurationFile() {
 	fi
 
 	### Update Saving Plan comumn part
-	# If do not contain SP items, delete SP columns in physical config file
+	# If do not contain SP items, delete SP columns in physical config file and replate sp item with a valid item[any one is ok] in logical configuration file
 	if [[ $SP == "no-sp-column" ]];then
 		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_region"))' >> tmpjson && mv tmpjson physical-table-map.json
 		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_savings_plan_effective_cost"))' >> tmpjson && mv tmpjson physical-table-map.json
-	
+		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_amortized_upfront_commitment_for_billing_period"))' >> tmpjson && mv tmpjson physical-table-map.json
+		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_recurring_commitment_for_billing_period"))' >> tmpjson && mv tmpjson physical-table-map.json
+		sed -i "" "s/{savings_plan_net_savings_plan_effective_cost}/{reservation_net_effective_cost}/g" logical-table-map.json
+
 	# If contain SP items, delete SP columns in logical config file
 	else
 		cat logical-table-map.json | jq 'del(.string.DataTransforms[] | select(.CreateColumnsOperation.Columns[0].ColumnName == "savings_plan_net_savings_plan_effective_cost"))' >> tmpjson && mv tmpjson logical-table-map.json
