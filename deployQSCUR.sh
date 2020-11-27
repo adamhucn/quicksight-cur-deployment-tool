@@ -336,8 +336,15 @@ updateConfigurationFile() {
 		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_savings_plan_effective_cost"))' >> tmpjson && mv tmpjson physical-table-map.json
 		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_amortized_upfront_commitment_for_billing_period"))' >> tmpjson && mv tmpjson physical-table-map.json
 		cat physical-table-map.json | jq 'del(.string.RelationalTable.InputColumns[] | select(.Name == "savings_plan_net_recurring_commitment_for_billing_period"))' >> tmpjson && mv tmpjson physical-table-map.json
-		sed -i "" "s/{savings_plan_net_savings_plan_effective_cost}/{reservation_net_effective_cost}/g" logical-table-map.json
-
+		
+		# If client is Mac OS
+		if [[ $UNAME == "Darwin" ]];then	
+			sed -i "" "s/{savings_plan_net_savings_plan_effective_cost}/{reservation_net_effective_cost}/g" logical-table-map.json
+		# If client is other linux, using different sed syntax
+		else
+			sed -i "s/{savings_plan_net_savings_plan_effective_cost}/{reservation_net_effective_cost}/g" logical-table-map.json
+		fi
+		
 	# If contain SP items, delete SP columns in logical config file
 	else
 		cat logical-table-map.json | jq 'del(.string.DataTransforms[] | select(.CreateColumnsOperation.Columns[0].ColumnName == "savings_plan_net_savings_plan_effective_cost"))' >> tmpjson && mv tmpjson logical-table-map.json
