@@ -63,6 +63,7 @@ fi
 # Get the destination region to delete this solution
 selectRegion
 
+# Define keyword of resources IDs created by this tool
 DATASOURCEID="cur-datasource-id-"$REGIONCUR
 DATASETID="cur-dataset-id-"$REGIONCUR
 DASHBOARDID="cur-dashboard-id-"$REGIONCUR
