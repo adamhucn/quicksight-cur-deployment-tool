@@ -1,6 +1,6 @@
 ### Powered by AWS Enterprise Support 
 ### Mail: tam-solution-costvisualization@amazon.com
-### Version 1.0
+### Version 1.1
 
 checkJQ() {
 	# Check if jq is an executable command
@@ -67,12 +67,43 @@ DATASOURCEID="cur-datasource-id-"$REGIONCUR
 DATASETID="cur-dataset-id-"$REGIONCUR
 DASHBOARDID="cur-dashboard-id-"$REGIONCUR
 
-# Delete resources created for CUR generated from global region
-aws quicksight delete-dashboard --aws-account-id $AccountID --dashboard-id $DASHBOARDID --region $REGIONCUR
-aws quicksight delete-data-set --aws-account-id $AccountID --data-set-id $DATASETID --region $REGIONCUR
-aws quicksight delete-data-source --aws-account-id $AccountID --data-source-id $DATASOURCEID --region $REGIONCUR
+# Delete resources created for CUR generated from global and China region
+dashboardnum=0
+datasetnum=0
+datasourcenum=0
 
-# Delete resources created for CUR generated from China region
-aws quicksight delete-dashboard --aws-account-id $AccountID --dashboard-id cn-$DASHBOARDID --region $REGIONCUR
-aws quicksight delete-data-set --aws-account-id $AccountID --data-set-id cn-$DATASETID --region $REGIONCUR
-aws quicksight delete-data-source --aws-account-id $AccountID --data-source-id cn-$DATASOURCEID --region $REGIONCUR
+DASHBOARDLIST=`aws quicksight list-dashboards --aws-account-id $AccountID --region $REGIONCUR | jq -r '.DashboardSummaryList[].DashboardId'`
+DASHBOARDARRAY=($DASHBOARDLIST)
+
+for dashboarditerator in "${DASHBOARDARRAY[@]}";do 
+	if [[ $dashboarditerator =~ $DASHBOARDID ]];then 
+		aws quicksight delete-dashboard --aws-account-id $AccountID --dashboard-id $dashboarditerator --region $REGIONCUR
+		let dashboardnum=$dashboardnum+1
+	fi
+done
+
+DATASETLIST=`aws quicksight list-data-sets --aws-account-id $AccountID --region $REGIONCUR | jq -r '.DataSetSummaries[].DataSetId'`
+DATASETARRAY=($DATASETLIST)
+
+for datasetiterator in "${DATASETARRAY[@]}";do 
+	if [[ $datasetiterator =~ $DATASETID ]];then 
+		aws quicksight delete-data-set --aws-account-id $AccountID --data-set-id $datasetiterator --region $REGIONCUR
+		let datasetnum=$datasetnum+1
+	fi
+done
+
+DATASOURCELIST=`aws quicksight list-data-sources --aws-account-id $AccountID --region $REGIONCUR | jq -r '.DataSources[].DataSourceId'`
+DATASOURCEARRAY=($DATASOURCELIST)
+
+for datasourceiterator in "${DATASOURCEARRAY[@]}";do 
+	if [[ $datasourceiterator =~ $DATASOURCEID ]];then 
+		aws quicksight delete-data-source --aws-account-id $AccountID --data-source-id $datasourceiterator --region $REGIONCUR
+		let datasourcenum=$datasourcenum+1
+	fi
+done
+
+echo ""
+echo Deletion Summary:
+echo $dashboardnum dashboard\(s\) deleted.
+echo $datasetnum dataset\(s\) deleted.
+echo $datasourcenum datasource\(s\) deleted.
