@@ -55,7 +55,7 @@ getCURDataSourceRegion() {
 			exit
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 
 	# Get the region name from query result
@@ -135,7 +135,7 @@ getCURDateFormat(){
 			exit
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 
 	# Get the Date format from query result
@@ -184,7 +184,7 @@ isEMR() {
 			break
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 }
 
@@ -219,7 +219,7 @@ isSP() {
 			break
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 }
 
@@ -258,7 +258,7 @@ isEDP() {
 			break
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 }
 
@@ -309,7 +309,7 @@ isTAG() {
 				return
 			fi
 
-			sleep 2s
+			sleep 2
 		done
 
 		Cal_Project="{resource_tags_user_"$TAG"}"
@@ -602,7 +602,7 @@ getAthenaBucket() {
 			return
 		fi
 
-		sleep 2s
+		sleep 2
 	done
 }
 
@@ -838,7 +838,7 @@ do
 		exit
 	fi
 
-	sleep 2s
+	sleep 2
 done
 
 # Authorize permissons for DataSource created just now
@@ -915,7 +915,7 @@ do
 		exit
 	fi
 
-	sleep 2s
+	sleep 2
 done
 
 # Authorize permissions for created DashBoard
